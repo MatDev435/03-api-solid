@@ -1,4 +1,4 @@
-import { test, describe, it, expect } from 'vitest'
+import { describe, it, expect } from 'vitest'
 import { RegisterUseCase } from './register'
 import { compare } from 'bcryptjs'
 import { InMemoryUsersRepository } from '@/repositories/in-memory/in-memory-users-repository'
@@ -48,7 +48,7 @@ describe('Register Use Case', () => {
       password: '123456',
     })
 
-    expect(
+    await expect(() =>
       registerUseCase.execute({
         name: 'John Doe',
         email,
